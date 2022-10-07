@@ -32,9 +32,9 @@ namespace _07_10_22
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnShipment = new System.Windows.Forms.Button();
+            this.btnProduct = new System.Windows.Forms.Button();
+            this.btnProvider = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -50,9 +50,9 @@ namespace _07_10_22
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(0)))));
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnShipment);
+            this.panel3.Controls.Add(this.btnProduct);
+            this.panel3.Controls.Add(this.btnProvider);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -78,32 +78,35 @@ namespace _07_10_22
             this.panel2.Size = new System.Drawing.Size(801, 10);
             this.panel2.TabIndex = 7;
             // 
-            // button2
+            // btnShipment
             // 
-            this.button2.Location = new System.Drawing.Point(510, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 44);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Поставки";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnShipment.Location = new System.Drawing.Point(510, 16);
+            this.btnShipment.Name = "btnShipment";
+            this.btnShipment.Size = new System.Drawing.Size(136, 44);
+            this.btnShipment.TabIndex = 5;
+            this.btnShipment.Text = "Поставки";
+            this.btnShipment.UseVisualStyleBackColor = true;
+            this.btnShipment.Click += new System.EventHandler(this.btnShipment_Click);
             // 
-            // button1
+            // btnProduct
             // 
-            this.button1.Location = new System.Drawing.Point(368, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 44);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Товар";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnProduct.Location = new System.Drawing.Point(368, 16);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(136, 44);
+            this.btnProduct.TabIndex = 4;
+            this.btnProduct.Text = "Товар";
+            this.btnProduct.UseVisualStyleBackColor = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
-            // button3
+            // btnProvider
             // 
-            this.button3.Location = new System.Drawing.Point(652, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(136, 44);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Поставщики";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnProvider.Location = new System.Drawing.Point(652, 16);
+            this.btnProvider.Name = "btnProvider";
+            this.btnProvider.Size = new System.Drawing.Size(136, 44);
+            this.btnProvider.TabIndex = 6;
+            this.btnProvider.Text = "Поставщики";
+            this.btnProvider.UseVisualStyleBackColor = true;
+            this.btnProvider.Click += new System.EventHandler(this.btnProvider_Click);
             // 
             // panel1
             // 
@@ -153,6 +156,7 @@ namespace _07_10_22
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Main";
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -166,9 +170,9 @@ namespace _07_10_22
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnShipment;
+        private System.Windows.Forms.Button btnProduct;
+        private System.Windows.Forms.Button btnProvider;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox1;

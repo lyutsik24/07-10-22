@@ -23,5 +23,17 @@ namespace _07_10_22
             this.shop_ShipmentTableAdapter.Fill(this.kostyaDataSet2.Shop_Shipment);
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main main = new Main();
+            main.Show();
+        }
+
+        private void Shipment_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace _07_10_22
             this.components = new System.ComponentModel.Container();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.shop_ProductsTableAdapter = new _07_10_22.KostyaDataSetTableAdapters.Shop_ProductsTableAdapter();
             this.shopProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -94,14 +94,15 @@ namespace _07_10_22
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.Location = new System.Drawing.Point(502, 525);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 36);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Назад";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBack.Location = new System.Drawing.Point(502, 525);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(106, 36);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Назад";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // button2
             // 
@@ -259,7 +260,7 @@ namespace _07_10_22
             this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnBack);
             this.panel5.Controls.Add(this.button2);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
@@ -386,6 +387,7 @@ namespace _07_10_22
             this.Controls.Add(this.panel1);
             this.Name = "Provider";
             this.Text = "Provider";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Provider_FormClosing);
             this.Load += new System.EventHandler(this.Provider_Load);
             ((System.ComponentModel.ISupportInitialize)(this.shopProductsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet)).EndInit();
@@ -403,7 +405,7 @@ namespace _07_10_22
         #endregion
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button button2;
         private KostyaDataSetTableAdapters.Shop_ProductsTableAdapter shop_ProductsTableAdapter;
         private System.Windows.Forms.BindingSource shopProductsBindingSource;

@@ -32,10 +32,18 @@ namespace _07_10_22
             this.components = new System.ComponentModel.Container();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id_Shipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProviderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delivery_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delivery_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shopShipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kostyaDataSet2 = new _07_10_22.KostyaDataSet2();
             this.shopProviderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kostyaDataSet1 = new _07_10_22.KostyaDataSet1();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -44,35 +52,27 @@ namespace _07_10_22
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.kostyaDataSet = new _07_10_22.KostyaDataSet();
-            this.shopProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shop_ProductsTableAdapter = new _07_10_22.KostyaDataSetTableAdapters.Shop_ProductsTableAdapter();
-            this.kostyaDataSet2 = new _07_10_22.KostyaDataSet2();
-            this.shopShipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shop_ShipmentTableAdapter = new _07_10_22.KostyaDataSet2TableAdapters.Shop_ShipmentTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Id_Shipment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProviderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delivery_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delivery_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.kostyaDataSet = new _07_10_22.KostyaDataSet();
+            this.shopProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shop_ProductsTableAdapter = new _07_10_22.KostyaDataSetTableAdapters.Shop_ProductsTableAdapter();
+            this.shop_ShipmentTableAdapter = new _07_10_22.KostyaDataSet2TableAdapters.Shop_ShipmentTableAdapter();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shopShipmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopProviderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopProductsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shopShipmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button4
@@ -93,14 +93,15 @@ namespace _07_10_22
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.Location = new System.Drawing.Point(300, 474);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 36);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Назад";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBack.Location = new System.Drawing.Point(300, 474);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(106, 36);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Назад";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // button2
             // 
@@ -138,6 +139,54 @@ namespace _07_10_22
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(404, 208);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // Id_Shipment
+            // 
+            this.Id_Shipment.DataPropertyName = "Id_Shipment";
+            this.Id_Shipment.HeaderText = "Id_Shipment";
+            this.Id_Shipment.Name = "Id_Shipment";
+            this.Id_Shipment.Visible = false;
+            // 
+            // idProviderDataGridViewTextBoxColumn
+            // 
+            this.idProviderDataGridViewTextBoxColumn.DataPropertyName = "Id_Provider";
+            this.idProviderDataGridViewTextBoxColumn.HeaderText = "Id_Provider";
+            this.idProviderDataGridViewTextBoxColumn.Name = "idProviderDataGridViewTextBoxColumn";
+            this.idProviderDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Id_Product
+            // 
+            this.Id_Product.DataPropertyName = "Id_Product";
+            this.Id_Product.HeaderText = "ID Продукта";
+            this.Id_Product.Name = "Id_Product";
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Количество";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Delivery_Price
+            // 
+            this.Delivery_Price.DataPropertyName = "Delivery_Price";
+            this.Delivery_Price.HeaderText = "Цена поставки";
+            this.Delivery_Price.Name = "Delivery_Price";
+            // 
+            // Delivery_Date
+            // 
+            this.Delivery_Date.DataPropertyName = "Delivery_Date";
+            this.Delivery_Date.HeaderText = "Дата поставки";
+            this.Delivery_Date.Name = "Delivery_Date";
+            // 
+            // shopShipmentBindingSource
+            // 
+            this.shopShipmentBindingSource.DataMember = "Shop_Shipment";
+            this.shopShipmentBindingSource.DataSource = this.kostyaDataSet2;
+            // 
+            // kostyaDataSet2
+            // 
+            this.kostyaDataSet2.DataSetName = "KostyaDataSet2";
+            this.kostyaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // shopProviderBindingSource
             // 
@@ -197,7 +246,7 @@ namespace _07_10_22
             this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnBack);
             this.panel5.Controls.Add(this.button2);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
@@ -209,42 +258,6 @@ namespace _07_10_22
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(424, 526);
             this.panel5.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 10);
-            this.panel2.TabIndex = 0;
-            // 
-            // kostyaDataSet
-            // 
-            this.kostyaDataSet.DataSetName = "KostyaDataSet";
-            this.kostyaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // shopProductsBindingSource
-            // 
-            this.shopProductsBindingSource.DataMember = "Shop_Products";
-            this.shopProductsBindingSource.DataSource = this.kostyaDataSet;
-            // 
-            // shop_ProductsTableAdapter
-            // 
-            this.shop_ProductsTableAdapter.ClearBeforeFill = true;
-            // 
-            // kostyaDataSet2
-            // 
-            this.kostyaDataSet2.DataSetName = "KostyaDataSet2";
-            this.kostyaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // shopShipmentBindingSource
-            // 
-            this.shopShipmentBindingSource.DataMember = "Shop_Shipment";
-            this.shopShipmentBindingSource.DataSource = this.kostyaDataSet2;
-            // 
-            // shop_ShipmentTableAdapter
-            // 
-            this.shop_ShipmentTableAdapter.ClearBeforeFill = true;
             // 
             // label4
             // 
@@ -297,43 +310,31 @@ namespace _07_10_22
             this.textBox1.Size = new System.Drawing.Size(133, 20);
             this.textBox1.TabIndex = 22;
             // 
-            // Id_Shipment
+            // panel2
             // 
-            this.Id_Shipment.DataPropertyName = "Id_Shipment";
-            this.Id_Shipment.HeaderText = "Id_Shipment";
-            this.Id_Shipment.Name = "Id_Shipment";
-            this.Id_Shipment.Visible = false;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(424, 10);
+            this.panel2.TabIndex = 0;
             // 
-            // idProviderDataGridViewTextBoxColumn
+            // kostyaDataSet
             // 
-            this.idProviderDataGridViewTextBoxColumn.DataPropertyName = "Id_Provider";
-            this.idProviderDataGridViewTextBoxColumn.HeaderText = "Id_Provider";
-            this.idProviderDataGridViewTextBoxColumn.Name = "idProviderDataGridViewTextBoxColumn";
-            this.idProviderDataGridViewTextBoxColumn.Visible = false;
+            this.kostyaDataSet.DataSetName = "KostyaDataSet";
+            this.kostyaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // Id_Product
+            // shopProductsBindingSource
             // 
-            this.Id_Product.DataPropertyName = "Id_Product";
-            this.Id_Product.HeaderText = "ID Продукта";
-            this.Id_Product.Name = "Id_Product";
+            this.shopProductsBindingSource.DataMember = "Shop_Products";
+            this.shopProductsBindingSource.DataSource = this.kostyaDataSet;
             // 
-            // Quantity
+            // shop_ProductsTableAdapter
             // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Количество";
-            this.Quantity.Name = "Quantity";
+            this.shop_ProductsTableAdapter.ClearBeforeFill = true;
             // 
-            // Delivery_Price
+            // shop_ShipmentTableAdapter
             // 
-            this.Delivery_Price.DataPropertyName = "Delivery_Price";
-            this.Delivery_Price.HeaderText = "Цена поставки";
-            this.Delivery_Price.Name = "Delivery_Price";
-            // 
-            // Delivery_Date
-            // 
-            this.Delivery_Date.DataPropertyName = "Delivery_Date";
-            this.Delivery_Date.HeaderText = "Дата поставки";
-            this.Delivery_Date.Name = "Delivery_Date";
+            this.shop_ShipmentTableAdapter.ClearBeforeFill = true;
             // 
             // Shipment
             // 
@@ -343,9 +344,12 @@ namespace _07_10_22
             this.Controls.Add(this.panel1);
             this.Name = "Shipment";
             this.Text = "Shipment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Shipment_FormClosing);
             this.Load += new System.EventHandler(this.Shipment_Load);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shopShipmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopProviderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -353,8 +357,6 @@ namespace _07_10_22
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shopProductsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kostyaDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shopShipmentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,7 +364,7 @@ namespace _07_10_22
         #endregion
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dataGridView1;
